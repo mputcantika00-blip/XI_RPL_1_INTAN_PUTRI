@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dapur Lezat - Ayam Geprek</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f3e5f5,
+                    #e1bee7,
+                    #fce4ec
+                );
+
+            color: #333;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            background: rgb(99, 99, 223);
+
+            color: white;
+
+            padding: 20px 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            box-shadow:
+                0 0 15px #e040fb;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+        }
+
+
+        /* MENU */
+
+        nav {
+
+            display: flex;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        /* HOVER MENU */
+
+        nav a:hover {
+
+            color: #ff80ab;
+
+            text-shadow:
+                0 0 10px #ff4081;
+        }
+
+
+        /* =========================
+           HALAMAN
+        ========================= */
+
+        .page {
+
+            display: none;
+
+            min-height: 85vh;
+
+            padding: 50px 20px;
+        }
+
+
+        .page.active {
+
+            display: block;
+
+            animation: muncul 0.6s ease;
+        }
+
+
+        @keyframes muncul {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        .hero {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .hero h2 {
+
+            font-size: 42px;
+
+            color: #7b1fa2;
+
+            margin-bottom: 10px;
+
+            transition: 0.3s;
+        }
+
+
+        .hero h2:hover {
+
+            color: #e91e63;
+
+            text-shadow:
+                0 0 10px #e91e63;
+        }
+
+
+        .hero p {
+
+            font-size: 18px;
+
+            margin-bottom: 35px;
+
+            color: #555;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+
+            max-width: 420px;
+
+            margin: auto;
+
+            padding: 15px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            border: 3px solid #e040fb;
+
+            box-shadow:
+                0 0 10px #e040fb,
+                0 0 30px rgba(224, 64, 251, 0.5);
+
+            transition: 0.4s;
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 0 20px #e040fb,
+                0 0 40px rgba(224, 64, 251, 0.8);
+        }
+
+
+        /* =========================
+           GAMBAR
+        ========================= */
+
+        .image-box {
+
+            width: 100%;
+
+            height: 250px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+        }
+
+
+        .image-box img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+
+        /* GAMBAR MEMBESAR */
+
+        .image-box:hover img {
+
+            transform: scale(1.2);
+        }
+
+
+        /* =========================
+           JUDUL RESEP
+        ========================= */
+
+        .card h3 {
+
+            font-size: 30px;
+
+            color: #7b1fa2;
+
+            margin: 18px 0 8px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        /* JUDUL BERUBAH WARNA */
+
+        .card h3:hover {
+
+            color: #e91e63;
+
+            text-shadow:
+                0 0 10px #e91e63;
+        }
+
+
+        .card p {
+
+            color: #666;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        button {
+
+            border: none;
+
+            padding: 12px 24px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    45deg,
+                    #7b1fa2,
+                    #e040fb
+                );
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        button:hover {
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 20px #e040fb;
+        }
+
+
+        /* =========================
+           DETAIL RESEP
+        ========================= */
+
+        .resep {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            border: 3px solid #e040fb;
+
+            box-shadow:
+                0 0 15px #e040fb,
+                0 0 35px rgba(224, 64, 251, 0.5);
+        }
+
+
+        .resep h2 {
+
+            text-align: center;
+
+            font-size: 38px;
+
+            color: #7b1fa2;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* GAMBAR RESEP */
+
+        .resep > img {
+
+            width: 100%;
+
+            height: 350px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            margin-bottom: 25px;
+
+            transition: 0.5s;
+        }
+
+
+        .resep > img:hover {
+
+            transform: scale(1.03);
+
+            box-shadow:
+                0 0 20px #e040fb;
+        }
+
+
+        /* =========================
+           BAHAN & CARA
+        ========================= */
+
+        .resep h3 {
+
+            color: #c2185b;
+
+            margin: 25px 0 12px;
+
+            font-size: 23px;
+        }
+
+
+        .resep ul,
+        .resep ol {
+
+            margin-left: 25px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =========================
+           TUTORIAL
+        ========================= */
+
+        .judul-tutorial {
+
+            text-align: center;
+
+            margin-top: 40px !important;
+
+            color: #7b1fa2 !important;
+
+            font-size: 28px !important;
+        }
+
+
+        .tutorial {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 20px;
+        }
+
+
+        .step {
+
+            background: #faf5ff;
+
+            border: 2px solid #ce93d8;
+
+            border-radius: 18px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 0 10px rgba(224, 64, 251, 0.3);
+        }
+
+
+        .step:hover {
+
+            transform:
+                translateY(-8px)
+                scale(1.03);
+
+            border-color: #e040fb;
+
+            box-shadow:
+                0 0 20px #e040fb;
+        }
+
+
+        /* ANIMASI */
+
+        .animasi {
+
+            font-size: 60px;
+
+            height: 85px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            animation:
+                bergerak 2s infinite;
+        }
+
+
+        @keyframes bergerak {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            25% {
+
+                transform:
+                    translateY(-8px)
+                    rotate(-5deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(0)
+                    rotate(5deg);
+            }
+
+            75% {
+
+                transform:
+                    translateY(-8px)
+                    rotate(-5deg);
+            }
+
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+        }
+
+
+        .step h4 {
+
+            color: #7b1fa2;
+
+            margin: 10px 0;
+        }
+
+
+        .step p {
+
+            color: #666;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           TOMBOL
+        ========================= */
+
+        .tombol {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .kembali {
+
+            background: #555;
+        }
+
+
+        .pesan {
+
+            background:
+                linear-gradient(
+                    45deg,
+                    #e91e63,
+                    #ff4081
+                );
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #24112f;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+
+        /* =========================
+           HP
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                padding: 18px 15px;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            .logo {
+
+                font-size: 23px;
+            }
+
+
+            nav a {
+
+                margin: 0 7px;
+
+                font-size: 14px;
+            }
+
+
+            .hero h2 {
+
+                font-size: 30px;
+            }
+
+
+            .resep {
+
+                padding: 20px;
+            }
+
+
+            .resep > img {
+
+                height: 250px;
+            }
+
+
+            .tutorial {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+    
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            web rpl
+        </div>
+
+
+        <nav>
+
+            <a onclick="bukaHalaman('halaman utama')">
+                halaman utama
+            </a>
+
+            <a onclick="bukaHalaman('resep makanan')">
+                Resep makanan 
+            </a>
+
+            <a onclick="surat_izin()">
+                surat izin
+            </a>
+
+            <a onclick="kontak_anggota()">
+                kontak anggota
+            </a>
+
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HALAMAN HOME
+    ========================== -->
+
+    <section
+        id="home"
+        class="page active">
+
+        <div class="hero">
+
+            <h2>
+                Resep Hari Ini 🍗
+            </h2>
+
+            <p>
+                Sajian pedas dan lezat
+                yang mudah dibuat di rumah!
+            </p>
+
+
+            <div class="card">
+
+
+                <div class="image-box">
+
+                    <img
+                        src="https://media.istockphoto.com/id/1310768631/id/foto/ayam-geprek-indonesian-food-ayam-goreng-renyah-dengan-sambal-sambal-sambal-pedas-dan-panas.jpg?s=612x612&w=0&k=20&c=7waEO4apjbc4sAC1ZYhYWFaKpiwTtie_05MoEbRHQPw="
+                        alt="Ayam Geprek">
+
+                </div>
+
+
+                <h3
+                    onclick="bukaHalaman('resep')">
+
+                    Ayam Geprek 🌶️
+
+                </h3>
+
+
+                <p>
+
+                    Ayam crispy dengan
+                    sambal pedas yang menggugah selera.
+
+                </p>
+
+
+                <button
+                    onclick="bukaHalaman('resep')">
+
+                    Lihat Resep →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HALAMAN RESEP
+    ========================== -->
+
+    <section
+        id="resep"
+        class="page">
+
+
+        <div class="resep">
+
+
+            <h2>
+                🍗 Resep Ayam Geprek
+            </h2>
+
+
+            <img
+                src="https://media.istockphoto.com/id/1310768631/id/foto/ayam-geprek-indonesian-food-ayam-goreng-renyah-dengan-sambal-sambal-sambal-pedas-dan-panas.jpg?s=612x612&w=0&k=20&c=7waEO4apjbc4sAC1ZYhYWFaKpiwTtie_05MoEbRHQPw="
+                alt="Ayam Geprek">
+
+
+            <!-- BAHAN -->
+
+            <h3>
+                🛒 Bahan-bahan
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    2 potong ayam
+                </li>
+
+                <li>
+                    100 gram tepung terigu
+                </li>
+
+                <li>
+                    1 butir telur
+                </li>
+
+                <li>
+                    5 buah cabai merah
+                </li>
+
+                <li>
+                    3 buah cabai rawit
+                </li>
+
+                <li>
+                    2 siung bawang putih
+                </li>
+
+                <li>
+                    Garam secukupnya
+                </li>
+
+                <li>
+                    Minyak goreng
+                </li>
+
+            </ul>
+
+
+
+            <!-- CARA MEMBUAT -->
+
+            <h3>
+                👨‍🍳 Cara Membuat
+            </h3>
+
+
+            <ol>
+
+                <li>
+                    Cuci ayam dan beri sedikit garam.
+                </li>
+
+                <li>
+                    Celupkan ayam ke dalam telur.
+                </li>
+
+                <li>
+                    Balurkan ayam dengan tepung.
+                </li>
+
+                <li>
+                    Goreng ayam hingga matang dan crispy.
+                </li>
+
+                <li>
+                    Haluskan cabai, bawang putih dan garam.
+                </li>
+
+                <li>
+                    Letakkan ayam di atas sambal.
+                </li>
+
+                <li>
+                    Geprek ayam bersama sambal.
+                </li>
+
+            </ol>
+
+
+
+            <!-- =========================
+                 TUTORIAL
+            ========================== -->
+
+            <h3 class="judul-tutorial">
+
+                🎬 Tutorial Membuat Ayam Geprek
+
+            </h3>
+
+
+            <div class="tutorial">
+
+
+                <div class="step">
+
+                    <div class="animasi">
+                        🍗
+                    </div>
+
+                    <h4>
+                        Langkah 1
+                    </h4>
+
+                    <p>
+                        Siapkan dan bersihkan ayam.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="animasi">
+                        🥚
+                    </div>
+
+                    <h4>
+                        Langkah 2
+                    </h4>
+
+                    <p>
+                        Celupkan ayam ke dalam telur.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="animasi">
+                        🌾
+                    </div>
+
+                    <h4>
+                        Langkah 3
+                    </h4>
+
+                    <p>
+                        Balurkan ayam dengan tepung.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="animasi">
+                        🍳
+                    </div>
+
+                    <h4>
+                        Langkah 4
+                    </h4>
+
+                    <p>
+                        Goreng ayam sampai crispy.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="animasi">
+                        🌶️
+                    </div>
+
+                    <h4>
+                        Langkah 5
+                    </h4>
+
+                    <p>
+                        Buat sambal dari cabai dan bawang.
+                    </p>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="animasi">
+                        🍗🌶️
+                    </div>
+
+                    <h4>
+                        Langkah 6
+                    </h4>
+
+                    <p>
+                        Geprek ayam bersama sambal.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TOMBOL -->
+
+            <div class="tombol">
+
+
+                <button
+                    class="kembali"
+                    onclick="bukaHalaman('home')">
+
+                    ← Kembali
+
+                </button>
+
+
+                <button
+                    class="pesan"
+                    onclick="pesan()">
+
+                    🛒 Pesan Sekarang
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Dapur Lezat
+            | Selamat Memasak 🍗
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* PINDAH HALAMAN */
+
+        function bukaHalaman(nama) {
+
+
+            let halaman =
+                document.querySelectorAll(".page");
+
+
+            halaman.forEach(function(item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+            document
+                .getElementById(nama)
+                .classList.add("active");
+
+
+            window.scrollTo(0, 0);
+
+        }
+
+
+
+        /* TOMBOL PESAN */
+
+        function pesan() {
+
+            alert(
+                "Akan segera hadir! 🍗🌶️"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

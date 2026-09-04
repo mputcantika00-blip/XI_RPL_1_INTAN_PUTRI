@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>latihan JavaScript</title>
-
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        .paragraf {
+            color: rgb(21, 2, 2);
+            text-align: center;
+        }
+    </style>
     <link rel="stylesheet" href="tampilan.css">
 
     <!--pemanggilan eksternal JavaScript-->
@@ -16,7 +24,7 @@
         <div class="logo">web rpl</div>
         <ul class="nav-links">
             <li><a href="index.html">halaman utama</a></li>
-            <li><a href="#">resep makanan</a></li>
+            <li><a href="resep.html">resep makanan</a></li>
             <li><a href="#">surat izin</a></li>
             <li><a href="kontak_anggota.html">kontak anggota</a></li>
         </ul>
@@ -24,13 +32,10 @@
 
      <h1>Halaman kontak anggota TIM:<h1>
 
-     <h2 id="namaAnggota">
-        klik tombol untuk melihat nama!
-    </h2>
-    <button onclick="tampilkanNama()">
-        lihat nama
-    </button>
-     <!--contoh internal JavaScript-->
+     <h2 id="namaAnggota">klik tombol untuk melihat nama!</h2>
+    <button onclick="tampilkanNama()">lihat nama</button>
+ 
+    <!--contoh internal JavaScript-->
      <script>
         alert("Anda memasuki Halaman Kontak Anggota Tim!")
     </script>

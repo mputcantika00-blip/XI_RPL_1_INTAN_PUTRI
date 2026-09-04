@@ -1,0 +1,205 @@
+/* BACKGROUND HALAMAN */
+body {
+    margin: 0;
+    padding: 30px;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #fff3e0;
+
+    transition: 0.5s;
+}
+
+
+/* KOTAK UTAMA */
+.container {
+    width: 80%;
+    max-width: 700px;
+
+    margin: auto;
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    text-align: center;
+}
+
+
+/* GAMBAR */
+.gambar img {
+    width: 250px;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    transition: 0.5s;
+
+    cursor: pointer;
+}
+
+
+/* GAMBAR MEMBESAR SAAT HOVER */
+.gambar img:hover {
+    transform: scale(1.2);
+
+    box-shadow: 0 0 20px orange;
+}
+
+
+/* JUDUL */
+h1 {
+    margin-top: 25px;
+
+    color: #e65100;
+
+    font-size: 35px;
+
+    transition: 0.4s;
+
+    cursor: pointer;
+}
+
+
+/* JUDUL BERUBAH WARNA SAAT HOVER */
+h1:hover {
+    color: #ff4081;
+
+    transform: scale(1.05);
+}
+
+
+/* DESKRIPSI */
+.deskripsi {
+    color: #555;
+
+    font-size: 16px;
+}
+
+
+/* BOX BAHAN DAN CARA MEMBUAT */
+.box {
+    margin-top: 20px;
+
+    padding: 15px 25px;
+
+    background-color: #fff8e1;
+
+    border-radius: 12px;
+
+    border-left: 5px solid #ff9800;
+
+    text-align: left;
+
+    transition: 0.4s;
+}
+
+
+/* BOX BERUBAH SAAT DIHOVER */
+.box:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+}
+
+
+/* JUDUL BAHAN DAN CARA */
+h2 {
+    color: #eb76f1;
+
+    text-align: center;
+}
+
+
+/* LIST */
+li {
+    margin: 8px 0;
+}
+
+
+/* TOMBOL PESAN */
+button {
+    margin-top: 25px;
+
+    padding: 12px 35px;
+
+    border: 2px solid #6d5369;
+
+    border-radius: 10px;
+
+    background-color: #e7b7de;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+
+/* TOMBOL SAAT DIHOVER */
+button:hover {
+    background-color: white;
+
+    color: #d787dc;
+
+    box-shadow: 0 0 15px #f4a7e4;
+}
+
+
+/* PESAN */
+#pesan {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #a83e9f;
+
+    border: 3px solid transparent;
+
+    border-radius: 10px;
+
+    display: none;
+}
+
+
+/* BORDER TERANG SETELAH DIKLIK */
+#pesan.aktif {
+    display: block;
+
+    border-color: #57236a;
+
+    box-shadow:
+        0 0 5px #ff00dd,
+        0 0 15px #ff00dd,
+        0 0 25px #ff00dd;
+
+    animation: muncul 0.5s;
+}
+
+
+/* ANIMASI PESAN */
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
